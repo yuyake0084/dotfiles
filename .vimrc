@@ -15,6 +15,25 @@ endif
 
 call dein#end()
 
+" NERDTree
+" curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
+" :NeoBundleInstall
+" :NERDTreeToggle
+
+set nocompatible
+filetype off
+
+if has('vim_starting')
+    set runtimepath+=~/.vim/bundle/neobundle.vim
+    call neobundle#rc(expand('~/.vim/bundle/'))
+endif
+
+"insert here your Neobundle plugins"
+NeoBundle 'scrooloose/nerdtree'
+
+filetype plugin indent on
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
+
 syntax on
 
 " UTF-8
