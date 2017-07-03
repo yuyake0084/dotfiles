@@ -11,7 +11,7 @@ endif
   call dein#add('Shougo/neocomplete.vim')
   call dein#add('Shougo/neomru.vim')
   call dein#add('Shougo/neosnippet')
-  call dein#add('othree/yajs.vim' )
+  call dein#add('othree/yajs.vim')
 
 call dein#end()
 
