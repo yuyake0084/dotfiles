@@ -11,10 +11,11 @@ endif
   call dein#add('Shougo/neocomplete.vim')
   call dein#add('Shougo/neomru.vim')
   call dein#add('Shougo/neosnippet')
-  call dein#add('othree/yajs.vim' )
+  call dein#add('othree/yajs.vim')
 
 call dein#end()
 
+syntax on
 
 " UTF-8
 set fenc=utf-8
@@ -41,7 +42,9 @@ set cursorline
 set virtualedit=onemore
 
 " スマートインデント
-set smartindent
+" set smartindent
+set shiftwidth=2
+
 
 " 括弧
 set showmatch
