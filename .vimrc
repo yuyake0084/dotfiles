@@ -1,3 +1,7 @@
+" deinインストール
+" $ mkdir -p ~/.vim/dein/repos/github.com/Shougo/dein.vim
+" $ git clone https://github.com/Shougo/dein.vim.git ~/.vim/dein/repos/github.com/Shougo/dein.vim
+
 if &compatible
   set nocompatible
 endif
@@ -15,7 +19,12 @@ call dein#add('Shougo/neosnippet')
 call dein#add('othree/yajs.vim')
 
 call dein#add('scrooloose/nerdtree')
-all dein#end()
+call dein#end()
+
+" 未インストールのプラグインを自動インストール
+if has('vim_starting') && dein#check_install()
+  call dein#install()
+endif
 
 " Ctrl + e でフォルダツリー表示
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
