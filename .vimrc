@@ -1,37 +1,23 @@
 if &compatible
   set nocompatible
 endif
-  set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
-  call dein#begin(expand('~/.vim/dein'))
+set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
-  call dein#add('Shougo/dein.vim')
-  call dein#add('Shougo/vimproc.vim', {'build': 'make'})
+call dein#begin(expand('~/.vim/dein'))
 
-  call dein#add('Shougo/neocomplete.vim')
-  call dein#add('Shougo/neomru.vim')
-  call dein#add('Shougo/neosnippet')
-  call dein#add('othree/yajs.vim')
+call dein#add('Shougo/dein.vim')
+call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 
-call dein#end()
+call dein#add('Shougo/neocomplete.vim')
+call dein#add('Shougo/neomru.vim')
+call dein#add('Shougo/neosnippet')
+call dein#add('othree/yajs.vim')
 
-" NERDTree
-" curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
-" :NeoBundleInstall
-" :NERDTreeToggle
+call dein#add('scrooloose/nerdtree')
+all dein#end()
 
-set nocompatible
-filetype off
-
-if has('vim_starting')
-    set runtimepath+=~/.vim/bundle/neobundle.vim
-    call neobundle#rc(expand('~/.vim/bundle/'))
-endif
-
-"insert here your Neobundle plugins"
-NeoBundle 'scrooloose/nerdtree'
-
-filetype plugin indent on
+" Ctrl + e でフォルダツリー表示
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
 syntax on
