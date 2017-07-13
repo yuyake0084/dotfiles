@@ -17,6 +17,7 @@ call dein#add('Shougo/neocomplete.vim')
 call dein#add('Shougo/neomru.vim')
 call dein#add('Shougo/neosnippet')
 call dein#add('othree/yajs.vim')
+call dein#add('mattn/emmet-vim')
 
 call dein#add('scrooloose/nerdtree')
 call dein#end()
@@ -26,8 +27,11 @@ if has('vim_starting') && dein#check_install()
   call dein#install()
 endif
 
+" Emmetの設定
+let g:user_emmet_leader_key='<C-e>'
+
 " Ctrl + e でフォルダツリー表示
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
+nnoremap <silent><C-f> :NERDTreeToggle<CR>
 
 syntax on
 
@@ -55,10 +59,13 @@ set cursorline
 " 行末の1文字までカーソルを移動
 set virtualedit=onemore
 
-" スマートインデント
-" set smartindent
+" インデント
+set smartindent
 set shiftwidth=2
-
+set tabstop=2
+set expandtab
+set softtabstop=2
+set autoindent
 
 " 括弧
 set showmatch
