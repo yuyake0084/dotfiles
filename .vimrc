@@ -37,6 +37,10 @@ let g:user_emmet_leader_key='<C-e>'
 nnoremap <silent><C-f> :NERDTreeToggle<CR>
 
 syntax on
+
+" theme
+" colorscheme monokai-phoenix
+" colorscheme monokai
 " colorscheme molokai
 colorscheme turtles
 set t_Co=256
