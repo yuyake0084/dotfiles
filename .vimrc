@@ -19,6 +19,7 @@ call dein#add('Shougo/neosnippet')
 call dein#add('othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] })
 call dein#add('othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] })
 
+" theme
 call dein#add('mattn/emmet-vim')
 
 call dein#add('scrooloose/nerdtree')
@@ -36,6 +37,9 @@ let g:user_emmet_leader_key='<C-e>'
 nnoremap <silent><C-f> :NERDTreeToggle<CR>
 
 syntax on
+" colorscheme molokai
+colorscheme turtles
+set t_Co=256
 
 " UTF-8
 set fenc=utf-8
