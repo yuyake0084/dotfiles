@@ -45,6 +45,9 @@ syntax on
 colorscheme turtles
 set t_Co=256
 
+set modifiable
+set write
+
 " UTF-8
 set fenc=utf-8
 
@@ -82,3 +85,6 @@ set showmatch
 
 " コマンドラインの補完
 set wildmode=list:longest 
+
+map <C-k> gT
+map <C-l> gt
