@@ -3,6 +3,9 @@
 # vim
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
 
+# git
+# ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
+
 # theme
 ln -sf ~/dotfiles/.vim/colors/monokai.vim ~/.vim/colors/monokai.vim
 ln -sf ~/dotfiles/.vim/colors/molokai.vim ~/.vim/colors/molokai.vim
