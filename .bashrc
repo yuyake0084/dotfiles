@@ -18,5 +18,10 @@ if [ -f ~/dotfiles/.git-prompt.sh ]; then
   PS1='\[\e[36m\][\u@\h \W$(__git_ps1 \[\e[35m\]\]"(%s)")\[\e[36m\]]\[\e[37m\] \$ \[\e[31m\]\]'
 fi
 
+cd_ls () {
+  \cd "$@" && ls -al
+}
+
 alias vi='vim'
+alias cd='cd_ls'
 alias log="git log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
