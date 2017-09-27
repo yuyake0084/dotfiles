@@ -15,7 +15,7 @@ if [ -f ~/dotfiles/.git-prompt.sh ]; then
   # リポジトリの状態によって表示が変わる設定を有効にする
   GIT_PS1_SHOWDIRTYSTATE=1
   . ~/dotfiles/.git-prompt.sh
-  PS1='\[\e[36m\][\u@\h \W$(__git_ps1 \[\e[35m\]\]"(%s)")\[\e[36m\]]\[\e[37m\] \$ \[\e[31m\]\]'
+  PS1='\[\033[36m\]\u: \W$(__git_ps1 \[\e[35m\]\]"(%s)")\n\[\e[36m\]\[\e[37m\]\[\033[1;36m\](´・ω ・｀) \[\e[0m\] { \[\e[31m\]\]'
 fi
 
 cd_ls () {
