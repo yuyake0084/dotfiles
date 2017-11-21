@@ -1,6 +1,9 @@
 # カラーの設定
 # PS1='\[\e[1;36m\][\u@\h] \$ '
 
+# brewでインストールしたアプリケーションを/Applicationsに保存するようにする
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
    /etc/bashrc
