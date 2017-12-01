@@ -1,10 +1,6 @@
 # .bash_profile
 
 # Get the aliases and functions
-if [[ -f ~/.bashrc ]];
-  then . ~/.bashrc
-fi
-
 # nvm
 if [[ -s ~/.nvm/nvm.sh ]];
  then source ~/.nvm/nvm.sh
@@ -17,3 +13,6 @@ PATH=$PATH:$HOME/bin
 PATH=$PATH:/sbin
 
 export PATH
+if [[ -f ~/.bashrc ]];
+  then . ~/.bashrc
+fi

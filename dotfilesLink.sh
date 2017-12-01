@@ -1,19 +1,17 @@
 #!bin/sh
 
 # vim
-ln -sf ~/dotfiles/.vimrc ~/.vimrc
+ln -sf $HOME/dotfiles/.vimrc $HOME/.vimrc
+
+ln -sf $HOME/dotfiles/.pokemon.sh $HOME/.pokemon.sh
 
 # git
-# ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
+ln -sf $HOME/dotfiles/.gitconfig $HOME/.gitconfig
 
-# theme
-ln -sf ~/dotfiles/.vim/colors/monokai.vim ~/.vim/colors/monokai.vim
-ln -sf ~/dotfiles/.vim/colors/molokai.vim ~/.vim/colors/molokai.vim
-ln -sf ~/dotfiles/.vim/colors/turtles.vim ~/.vim/colors/turtles.vim
-ln -sf ~/dotfiles/.vim/colors/monokai-phoenix.vim ~/.vim/colors/monokai-phoenix.vim
+ln -nsf $HOME/dotfiles/.vim $HOME/.vim
 
-ln -sf ~/dotfiles/.bashrc ~/.bashrc
-ln -sf ~/dotfiles/.bash_profile ~/.bash_profile
+ln -sf $HOME/dotfiles/.bashrc $HOME/.bashrc
+ln -sf $HOME/dotfiles/.bash_profile $HOME/.bash_profile
 
 
 # ln -s /usr/local/bin/vim /usr/bin/vi

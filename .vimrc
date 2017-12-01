@@ -25,7 +25,7 @@ call dein#add('mattn/emmet-vim')
 call dein#add('scrooloose/nerdtree')
 call dein#end()
 
-" 未インストールのプラグインを自動インストール
+" 未インストールのプラグインを自
 if has('vim_starting') && dein#check_install()
   call dein#install()
 endif
@@ -50,6 +50,10 @@ set write
 
 " UTF-8
 set fenc=utf-8
+set encoding=utf-8
+set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+set fileformats=unix,dos,mac
+set termguicolors
 
 " バックアップを取らない
 set nobackup

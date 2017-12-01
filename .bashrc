@@ -14,6 +14,11 @@ if [ -f ~/dotfiles/.git-completion.bash ]; then
     . $HOME/dotfiles/.git-completion.bash
 fi
 
+# ポケモン
+if [[ `uname` -eq "Darwin" ]]; then
+  . $HOME/dotfiles/.pokemon.sh
+fi
+
 if [ -f ~/dotfiles/.git-prompt.sh ]; then
   # リポジトリの状態によって表示が変わる設定を有効にする
   GIT_PS1_SHOWDIRTYSTATE=1
