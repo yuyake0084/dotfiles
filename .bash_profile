@@ -2,8 +2,8 @@
 
 # Get the aliases and functions
 # nvm
-if [[ -s ~/.nvm/nvm.sh ]];
- then source ~/.nvm/nvm.sh
+if [[ -s $HOME/.nvm/nvm.sh ]];
+ then source $HOME/.nvm/nvm.sh
 fi
 
 # User specific environment and startup programs
@@ -13,6 +13,6 @@ PATH=$PATH:$HOME/bin
 PATH=$PATH:/sbin
 
 export PATH
-if [[ -f ~/.bashrc ]];
-  then . ~/.bashrc
+if [[ -f $HOME/.bashrc ]];
+  then . $HOME/.bashrc
 fi
