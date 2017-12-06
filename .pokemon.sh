@@ -6,12 +6,12 @@
 #  return 0
 #fi
 
-if test ! $(which pokemon); then
-  echo "no"
-else
-  pokemon unown
-  return 0
-fi
+# if test ! $(which pokemon); then
+#   echo "no"
+# else
+#   pokemon unown
+#   return 0
+# fi
 
 # unown # アンノーン
 # suicune #スイクン
