@@ -1,2 +1,2 @@
-.vim/dein/.cache/
-.vim/repos/
+./.vim/dein/*
+./.vim/repos/
