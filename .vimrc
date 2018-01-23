@@ -18,11 +18,16 @@ call dein#add('Shougo/neomru.vim')
 call dein#add('Shougo/neosnippet')
 call dein#add('othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] })
 call dein#add('othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] })
+call dein#add('tomlion/vim-solidity')
+call dein#add('heavenshell/vim-syntax-flowtype')
 
 " theme
 call dein#add('mattn/emmet-vim')
 
+" other
 call dein#add('scrooloose/nerdtree')
+call dein#add('bronson/vim-trailing-whitespace')
+
 call dein#end()
 
 " 未インストールのプラグインを自
