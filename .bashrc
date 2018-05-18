@@ -33,3 +33,7 @@ cd_ls () {
 alias vi='vim'
 alias cd='cd_ls'
 alias log="git log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[ -f /Users/yuohashi/Desktop/app/ganache/node_modules/tabtab/.completions/electron-forge.bash ] && . /Users/yuohashi/Desktop/app/ganache/node_modules/tabtab/.completions/electron-forge.bash

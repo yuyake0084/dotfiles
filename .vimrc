@@ -31,6 +31,7 @@ call dein#add('bronson/vim-trailing-whitespace')
 call dein#end()
 
 " Powerline系フォントを利用する
+let g:airline_powerline_fonts = 1
 set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
