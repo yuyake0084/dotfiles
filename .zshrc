@@ -17,7 +17,7 @@ setopt auto_cd
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="bullet-train"
 
 function chpwd() { ls -al }
 
@@ -73,7 +73,9 @@ function chpwd() { ls -al }
 plugins=(
   git
   osx
+  dir
   node
+  time
 )
 
 source $ZSH/oh-my-zsh.sh
