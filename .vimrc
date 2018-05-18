@@ -1,8 +1,3 @@
-
-if &compatible
-  set nocompatible
-endif
-
 set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
 call dein#begin(expand('~/.vim/dein'))
@@ -97,7 +92,8 @@ set modifiable
 set write
 
 " UTF-8
-set fenc=utf-8
+set encoding=utf-8
+set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
 
 " バックアップを取らない
 set nobackup

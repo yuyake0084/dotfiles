@@ -3,6 +3,19 @@
 
 # Path to your oh-my-zsh installation.
 
+source "$HOME/.zshrc.antigen"
+source "$HOME/.zgen/zgen.zsh"
+source "$HOME/.zplug/init.zsh"
+
+if ! zgen saved; then
+
+  # specify plugins here
+  zgen oh-my-zsh
+
+  # generate the init script from plugins above
+  zgen save
+fi
+
 export LANG=ja_JP.UTF-8
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export ZSH=/Users/yuohashi/.oh-my-zsh
@@ -18,6 +31,10 @@ setopt auto_cd
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="bullet-train"
+antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-traina
+zgen load caiogondim/bullet-train-oh-my-zsh-theme bullet-train
+setopt prompt_subst
+zplug "caiogondim/bullet-train.zsh", use:bullet-train.zsh-theme, defer:3
 
 function chpwd() { ls -al }
 
@@ -50,7 +67,7 @@ function chpwd() { ls -al }
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
 
-# Uncomment the following line to display red dots whilst waiting for completion.
+#; Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -72,13 +89,16 @@ function chpwd() { ls -al }
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  osx
+)
+
+BULLETTRAIN_PROMPT_ORDER=(
+  git
+  context
   dir
-  node
   time
 )
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
