@@ -7,8 +7,12 @@ source "$HOME/.zshrc.antigen"
 source "$HOME/.zgen/zgen.zsh"
 source "$HOME/.zplug/init.zsh"
 
-if ! zgen saved; then
 
+if [[ -s $HOME/.nvm/nvm.sh ]];
+ then source $HOME/.nvm/nvm.sh
+fi
+
+if ! zgen saved; then
   # specify plugins here
   zgen oh-my-zsh
 
