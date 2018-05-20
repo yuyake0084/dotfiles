@@ -1,12 +1,23 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# ------------------------------
+# General Settings
+# ------------------------------
+export EDITOR=vim
+export LANG=ja_JP.UTF-8
+export LC_ALL=ja_JP.UTF-8
+export KCODE=u
+export AUTOFEATURE=true
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
+export TERM=screen-256color
 
-# Path to your oh-my-zsh installation.
+if [ ! -e $HOME/.zgen ]; then
+  git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
+fi
 
-source "$HOME/.zshrc.antigen"
-source "$HOME/.zgen/zgen.zsh"
-source "$HOME/.zplug/init.zsh"
-
+if [ ! -e /path-to-antigen/antigen.zsh ]; then
+  curl -L git.io/antigen > antigen.zsh
+fi
 
 if [[ -s $HOME/.nvm/nvm.sh ]];
  then source $HOME/.nvm/nvm.sh
@@ -20,9 +31,8 @@ if ! zgen saved; then
   zgen save
 fi
 
-export LANG=ja_JP.UTF-8
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-export ZSH=/Users/yuohashi/.oh-my-zsh
+source "${HOME}/.zgen/zgen.zsh"
+source /path-to-antigen/antigen.zsh
 
 autoload -Uz colors
 colors
