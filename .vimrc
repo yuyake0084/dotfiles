@@ -12,6 +12,7 @@ call dein#add('othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] })
 call dein#add('othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] })
 call dein#add('tomlion/vim-solidity')
 call dein#add('heavenshell/vim-syntax-flowtype')
+call dein#add('szw/vim-tags')
 
 call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes')
@@ -110,6 +111,11 @@ let g:user_emmet_leader_key='<C-e>'
 
 " Ctrl + e でフォルダツリー表示
 nnoremap <silent><C-f> :NERDTreeToggle<CR>
+
+" コードジャンプ
+au BufNewFile,BufRead *.js let g:vim_tags_project_tags_command = "ctags --languages=js -f ~/js.tags `pwd` 2>/dev/null &"
+nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
+nnoremap <C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 
 syntax on
 
