@@ -46,7 +46,6 @@ initialize () {
   fi
 
   [ ! -d ${HOME}/.nvm ] && git clone https://github.com/creationix/nvm.git ${HOME}/.nvm
-  [ ! -e $HOME/.zgen ] && git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
   [ ! -d ${HOME}/.zplug ] && curl -sL zplug.sh/installer | zsh
 }
 
