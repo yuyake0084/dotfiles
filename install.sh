@@ -31,6 +31,10 @@ initialize () {
         rm -rf Cica_v2.1.0*
       fi
       ;;
+
+    linux*)
+      ;;
+
     *)
       echo "==========>>> $(tput setaf 1)Working only OSX / Ubuntu!!$(tput sgr0) <<<=========="
       exit 1
@@ -46,7 +50,14 @@ initialize () {
   fi
 
   [ ! -d ${HOME}/.nvm ] && git clone https://github.com/creationix/nvm.git ${HOME}/.nvm
-  [ ! -d ${HOME}/.zplug ] && curl -sL zplug.sh/installer | zsh
+  [ ! -d ${HOME}/.oh-my-zsh ] && sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+
+  if [ ! -d ${HOME}/.oh-my-zsh/custom/themes/powerlevel9k ]; then
+    mkdir -p ${HOME}/.oh-my-zsh/custom/themes/powerlevel9k
+    git clone https://github.com/bhilburn/powerlevel9k.git ${HOME}/.oh-my-zsh/custom/themes/powerlevel9k
+  fi
+
+  [ ! -d ${HOME}/.zplug ] && git clone https://github.com/zplug/zplug.git ${HOME}/.zplug
 }
 
 initialize

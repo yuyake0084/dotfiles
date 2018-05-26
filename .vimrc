@@ -13,6 +13,7 @@ call dein#add('othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.j
 call dein#add('tomlion/vim-solidity')
 call dein#add('heavenshell/vim-syntax-flowtype')
 call dein#add('szw/vim-tags')
+call dein#add('tpope/vim-fugitive')
 
 call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes')
@@ -53,7 +54,7 @@ let g:airline_symbols.linenr = '␤'
 let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.maxlinenr = ''
 let g:airline_symbols.maxlinenr = '㏑'
-let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
@@ -166,7 +167,7 @@ set autoindent
 set showmatch
 
 " コマンドラインの補完
-set wildmode=list:longest 
+set wildmode=list:longest
 
 map <C-k> gT
 map <C-l> gt
