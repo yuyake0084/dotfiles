@@ -55,6 +55,7 @@ install_brew() {
     local -a desired_formulae=(
       'alfred'
       'boostnote'
+      'caskroom/fonts/font-hack-nerd-font'
       'docker'
       'firefox'
       'franz'

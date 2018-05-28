@@ -30,6 +30,12 @@ initialize () {
         cp -f Cica_v2.1.0/Cica*.ttf ${HOME}/Library/Fonts/
         rm -rf Cica_v2.1.0*
       fi
+
+      if [ ! -e ~/Library/Fonts/Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete.otf ]; then
+        cd ${HOME}/Library/Fonts
+        curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
+        cd ${HOME}
+      fi
       ;;
 
     linux*)
