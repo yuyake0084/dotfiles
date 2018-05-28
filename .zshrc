@@ -5,6 +5,7 @@ export EDITOR=vim
 export LANG=ja_JP.UTF-8
 export LC_ALL=ja_JP.UTF-8
 export KCODE=u
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export AUTOFEATURE=true
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
@@ -13,6 +14,7 @@ export TERM=screen-256color
 export ZPLUG_HOME=$HOME/.zplug
 export ZSH=$HOME/.oh-my-zsh
 export DEFAULT_USER='athityakumar'
+
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 source $ZPLUG_HOME/init.zsh
