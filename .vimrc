@@ -1,33 +1,56 @@
-set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
+if &compatible
+  set nocompatible
+endif
 
-call dein#begin(expand('~/.vim/dein'))
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
-call dein#add('Shougo/dein.vim')
-call dein#add('Shougo/vimproc.vim', {'build': 'make'})
+if dein#load_state('~/.cache/dein')
+  call dein#begin('~/.cache/dein')
 
-call dein#add('Shougo/neocomplete.vim')
-call dein#add('Shougo/neomru.vim')
-call dein#add('Shougo/neosnippet')
-call dein#add('othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] })
-call dein#add('othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] })
-call dein#add('tomlion/vim-solidity')
-call dein#add('heavenshell/vim-syntax-flowtype')
-call dein#add('szw/vim-tags')
-call dein#add('tpope/vim-fugitive')
+  call dein#add('~/.cache/dein')
+  call dein#add('Shougo/deoplete.nvim')
 
-call dein#add('vim-airline/vim-airline')
-call dein#add('vim-airline/vim-airline-themes')
+  if !has('nvim')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
+  endif
 
-" theme
-call dein#add('mattn/emmet-vim')
 
-" other
-call dein#add('ryanoasis/vim-devicons')
-call dein#add('scrooloose/nerdtree')
-call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
-call dein#add('bronson/vim-trailing-whitespace')
+  call dein#add('Shougo/dein.vim')
+  call dein#add('Shougo/vimproc.vim', {'build': 'make'})
+  
+  call dein#add('Shougo/neocomplete.vim')
+  call dein#add('Shougo/neomru.vim')
+  call dein#add('Shougo/neosnippet')
+  call dein#add('othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] })
+  call dein#add('othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] })
+  call dein#add('tomlion/vim-solidity')
+  call dein#add('heavenshell/vim-syntax-flowtype')
+  call dein#add('szw/vim-tags')
+  call dein#add('tpope/vim-fugitive')
+  
+  call dein#add('vim-airline/vim-airline')
+  call dein#add('vim-airline/vim-airline-themes')
+  
+  " theme
+  call dein#add('mattn/emmet-vim')
+  
+  " other
+  call dein#add('ryanoasis/vim-devicons')
+  call dein#add('scrooloose/nerdtree')
+  call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
 
-call dein#end()
+  call dein#end()
+  call dein#save_state()
+endif
+
+" 未インストールのプラグインを自
+if has('vim_starting') && dein#check_install()
+  call dein#install()
+endif
+
+filetype plugin indent on
+syntax enable
 
 " Powerline系フォントを利用する
 let g:airline_powerline_fonts = 1
@@ -101,11 +124,6 @@ let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['md'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['txt'] = ''
 
 set guifont=RictyDiscordForPowerline\ Nerd\ Font:h14
-
-" 未インストールのプラグインを自
-if has('vim_starting') && dein#check_install()
-  call dein#install()
-endif
 
 " Emmetの設定
 let g:user_emmet_leader_key='<C-e>'
