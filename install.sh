@@ -39,6 +39,7 @@ initialize () {
       ;;
 
     linux*)
+        sudo apt install zsh
       ;;
 
     *)
@@ -49,14 +50,19 @@ initialize () {
 
   [ ${SHELL} != "/bin/zsh"  ] && chsh -s /bin/zsh
 
-  if [[ ! -e ${HOME}/.vim/dein/repos/github.com/Shougo/dein.vim ]]; then
-    mkdir -p ${HOME}/.vim/dein/repos/github.com/Shougo/dein.vim
-    git clone https://github.com/Shougo/dein.vim.git ${HOME}/.vim/dein/repos/github.com/Shougo/dein.vim
-    vi
+  if [[ ! -e ${HOME}/.cache/dein ]]; then
+    mkdir -p ${HOME}/.cache/dein
+    curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+    sh ./installer.sh ${HOME}/.cache/dein
+    rm -rf ./installer.sh
+    cd ${HOME}/.cache/dein/repos/github.com/Shougo/dein.vim
+    git checkout 1.0
+    cd ${HOME}
+    vi -u .vimrc
   fi
 
   [ ! -d ${HOME}/.nvm ] && git clone https://github.com/creationix/nvm.git ${HOME}/.nvm
-  [ ! -d ${HOME}/.oh-my-zsh ] && sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+  [ ! -d ${HOME}/.oh-my-zsh ] && sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
   if [ ! -d ${HOME}/.oh-my-zsh/custom/themes/powerlevel9k ]; then
     mkdir -p ${HOME}/.oh-my-zsh/custom/themes/powerlevel9k
