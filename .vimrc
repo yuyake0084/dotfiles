@@ -22,10 +22,21 @@ if dein#load_state('~/.cache/dein')
   call dein#add('Shougo/neocomplete.vim')
   call dein#add('Shougo/neomru.vim')
   call dein#add('Shougo/neosnippet')
+  call dein#add('sbdchd/neoformat')
   call dein#add('othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] })
   call dein#add('othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] })
   call dein#add('tomlion/vim-solidity')
   call dein#add('heavenshell/vim-syntax-flowtype')
+  call dein#add('prettier/vim-prettier')
+  call dein#add('flowtype/vim-flow', {
+    \ 'autoload': {
+    \   'filetypes': 'javascript'
+    \ },
+    \ 'build': {
+    \   'mac': 'npm install -g flow-bin',
+    \   'unix': 'npm install -g flow-bin'
+    \ }})
+  call dein#add('w0rp/ale')
   call dein#add('szw/vim-tags')
   call dein#add('tpope/vim-fugitive')
   
@@ -51,6 +62,8 @@ endif
 
 filetype plugin indent on
 syntax enable
+
+
 
 " Powerline系フォントを利用する
 let g:airline_powerline_fonts = 1
@@ -135,6 +148,34 @@ nnoremap <silent><C-f> :NERDTreeToggle<CR>
 au BufNewFile,BufRead *.js let g:vim_tags_project_tags_command = "ctags --languages=js -f ~/js.tags `pwd` 2>/dev/null &"
 nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 nnoremap <C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
+
+" prettier
+let g:ale_fixers = {}
+let g:ale_fixers['javascript'] = ['prettier-eslint']
+
+" ファイル保存時に実行
+let g:ale_fix_on_save = 1
+
+" ローカルの設定ファイルを考慮する
+let g:ale_javascript_prettier_use_local_config = 1
+let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+
+" Asynchronous Lint Engine (ALE)
+" Limit linters used for JavaScript.
+let g:ale_linters = {
+\  'javascript': ['flow']
+\}
+highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
+highlight clear ALEWarningSign " otherwise uses error bg color (typicallyred)
+let g:ale_sign_error = 'X' " could use emoji
+let g:ale_sign_warning = '?' " could use emoji
+let g:ale_statusline_format = ['X %d', '? %d', '']
+" %linter% is the name of the linter that provided the message
+" %s is the error or warning message
+let g:ale_echo_msg_format = '%linter% says %s'
+" Map keys to navigate between lines with errors and warnings.
+nnoremap <leader>an :ALENextWrap<cr>
+nnoremap <leader>ap :ALEPreviousWrap<cr>
 
 syntax on
 
