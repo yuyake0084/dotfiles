@@ -182,8 +182,9 @@ syntax on
 " theme
 " colorscheme monokai-phoenix
 " colorscheme monokai
-" colorscheme molokai
-colorscheme turtles
+" colorscheme moloka
+set background=dark
+colorscheme material
 set t_Co=256
 
 set modifiable
