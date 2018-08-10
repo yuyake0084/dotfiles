@@ -18,7 +18,8 @@ if dein#load_state('~/.cache/dein')
 
   call dein#add('Shougo/dein.vim')
   call dein#add('Shougo/vimproc.vim', {'build': 'make'})
-  
+
+  call dein#add('kaicataldo/material.vim')
   call dein#add('Shougo/neocomplete.vim')
   call dein#add('Shougo/neomru.vim')
   call dein#add('Shougo/neosnippet')
