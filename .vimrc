@@ -19,9 +19,6 @@ if dein#load_state('~/.cache/dein')
   call dein#add('Shougo/dein.vim')
   call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 
-  call dein#add('kaicataldo/material.vim')
-  call dein#add('Shougo/neocomplete.vim')
-  call dein#add('Shougo/neomru.vim')
   call dein#add('Shougo/neosnippet')
   call dein#add('sbdchd/neoformat')
   call dein#add('othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] })
@@ -43,10 +40,15 @@ if dein#load_state('~/.cache/dein')
   
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
-  
-  " theme
   call dein#add('mattn/emmet-vim')
   
+  " theme
+  call dein#add('skielbasa/vim-material-monokai')
+  call dein#add('kaicataldo/material.vim')
+  call dein#add('Shougo/neocomplete.vim')
+  call dein#add('Shougo/neomru.vim')
+  call dein#add('trusktr/seti.vim')
+
   " other
   call dein#add('ryanoasis/vim-devicons')
   call dein#add('scrooloose/nerdtree')
@@ -64,8 +66,6 @@ endif
 filetype plugin indent on
 syntax enable
 
-
-
 " Powerline系フォントを利用する
 let g:airline_powerline_fonts = 1
 set laststatus=2
@@ -74,7 +74,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#whitespace#mixed_indent_algo = 1
 
-let g:airline_theme = 'tomorrow'
+" let g:airline_theme = 'material'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
@@ -180,12 +180,13 @@ nnoremap <leader>ap :ALEPreviousWrap<cr>
 
 syntax on
 
-" theme
+" ========================= theme ============================
 " colorscheme monokai-phoenix
 " colorscheme monokai
-" colorscheme moloka
-set background=dark
-colorscheme material
+" colorscheme molokai
+colorscheme material-monokai
+" colorscheme seti
+
 set t_Co=256
 
 set modifiable
@@ -232,3 +233,18 @@ set wildmode=list:longest
 
 map <C-k> gT
 map <C-l> gt
+
+" material
+set background=dark
+
+if (has("nvim"))
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+let g:material_terminal_italics = 1
+let g:airline_theme = 'material'
+let g:lightline = { 'colorscheme': 'material_vim' }
