@@ -23,6 +23,8 @@ if dein#load_state('~/.cache/dein')
   call dein#add('sbdchd/neoformat')
   call dein#add('othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] })
   call dein#add('othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] })
+  call dein#add('leafgarland/typescript-vim')
+  call dein#add('peitalin/vim-jsx-typescript')
   call dein#add('tomlion/vim-solidity')
   call dein#add('heavenshell/vim-syntax-flowtype')
   call dein#add('prettier/vim-prettier')
@@ -147,8 +149,8 @@ nnoremap <silent><C-f> :NERDTreeToggle<CR>
 
 " コードジャンプ
 au BufNewFile,BufRead *.js let g:vim_tags_project_tags_command = "ctags --languages=js -f ~/js.tags `pwd` 2>/dev/null &"
-nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
-nnoremap <C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
+nnoremap <silent><C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
+nnoremap <silent><C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 
 " prettier
 let g:ale_fixers = {}
