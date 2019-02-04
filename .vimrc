@@ -118,10 +118,15 @@ let NERDTreeWinSize=40
 "vim-nerdtree-syntax-highlight
 let s:rspec_red = 'FE405F'
 let s:git_orange = 'F54D27'
+let g:NERDTreeSyntaxDisableDefaultExtensions = 1
+let g:NERDTreeDisableExactMatchHighlight = 1
+let g:NERDTreeDisablePatternMatchHighlight = 1
+let g:NERDTreeSyntaxEnabledExtensions = ['c', 'h', 'c++', 'php', 'rb', 'js', 'css']
 let g:NERDTreeExactMatchHighlightColor = {} " this line is needed to avoid error
 let g:NERDTreeExactMatchHighlightColor['.gitignore'] = s:git_orange " sets the color for .gitignore files
 let g:NERDTreePatternMatchHighlightColor = {} " this line is needed to avoid error
 let g:NERDTreePatternMatchHighlightColor['.*_spec\.rb$'] = s:rspec_red " sets the color for files ending with _spec.rb
+let g:NERDTreeLimitedSyntax = 1
 
 " vim-devicons
 let g:webdevicons_conceal_nerdtree_brackets = 1

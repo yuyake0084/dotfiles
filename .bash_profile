@@ -13,6 +13,6 @@ PATH=$PATH:$HOME/bin
 PATH=$PATH:/sbin
 
 export PATH
-if [[ -f $HOME/.bashrc ]];
-  then . $HOME/.bashrc
+if [[ -f $HOME/.zshrc ]];
+  then source $HOME/.zshrc
 fi
