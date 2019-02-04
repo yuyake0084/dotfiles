@@ -118,6 +118,8 @@ let NERDTreeWinSize=40
 "vim-nerdtree-syntax-highlight
 let s:rspec_red = 'FE405F'
 let s:git_orange = 'F54D27'
+let NERDTreeHighlightCursorline = 0
+let g:NERDTreeNodeDelimiter = "\u00a0"
 let g:NERDTreeSyntaxDisableDefaultExtensions = 1
 let g:NERDTreeDisableExactMatchHighlight = 1
 let g:NERDTreeDisablePatternMatchHighlight = 1
