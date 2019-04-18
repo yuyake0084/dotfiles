@@ -21,10 +21,13 @@ if dein#load_state('~/.cache/dein')
 
   call dein#add('Shougo/neosnippet')
   call dein#add('sbdchd/neoformat')
+ 
+  call dein#add('plasticboy/vim-markdown')
   call dein#add('othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] })
   call dein#add('othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] })
   call dein#add('leafgarland/typescript-vim')
   call dein#add('peitalin/vim-jsx-typescript')
+  call dein#add('tasn/vim-tsx')
   call dein#add('tomlion/vim-solidity')
   call dein#add('heavenshell/vim-syntax-flowtype')
   call dein#add('prettier/vim-prettier')
@@ -160,6 +163,11 @@ nnoremap <silent><C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 nnoremap <silent><C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 
 " prettier
+let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+
+nmap <silent> <C-w>j <Plug>(ale_next_wrap)
+nmap <silent> <C-w>k <Plug>(ale_previous_wrap)
+
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['prettier-eslint']
 
@@ -168,7 +176,6 @@ let g:ale_fix_on_save = 1
 
 " ローカルの設定ファイルを考慮する
 let g:ale_javascript_prettier_use_local_config = 1
-let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 
 " Asynchronous Lint Engine (ALE)
 " Limit linters used for JavaScript.
@@ -191,9 +198,9 @@ syntax on
 
 " ========================= theme ============================
 " colorscheme monokai-phoenix
-" colorscheme monokai
+colorscheme monokai
 " colorscheme molokai
-colorscheme material-monokai
+" colorscheme material-monokai
 " colorscheme seti
 
 set t_Co=256
