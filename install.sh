@@ -6,6 +6,7 @@ DOT_DIRECTORY="${HOME}/dotfiles"
 echo "==========>>> link home directory dotfiles <<<=========="
 cd ${DOT_DIRECTORY}
 
+# ドットファイルをHOMEにコピー
 for f in .??*
 do
   [ "$f" = ".git" ] && continue

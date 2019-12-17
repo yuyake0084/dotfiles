@@ -1,6 +1,6 @@
 [user]
-	name = yuyake0084
-  email = "yuyake0084@gmail.com"
+  name = ohashi-yu
+  email = "ohashi-yu@dmm.com"
 
 [commit]
 	template = ~/dotfiles/.commit_template

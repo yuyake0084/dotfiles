@@ -55,6 +55,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('trusktr/seti.vim')
 
   " other
+  call dein#add('reireias/vim-cheatsheet')
   call dein#add('ryanoasis/vim-devicons')
   call dein#add('scrooloose/nerdtree')
   call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
@@ -154,15 +155,45 @@ set guifont=RictyDiscordForPowerline\ Nerd\ Font:h14
 " Emmetの設定
 let g:user_emmet_leader_key='<C-e>'
 
+" Cheatsheet
+let g:cheatsheet#cheat_file = '~/.cheatsheet.md'
+let g:cheatsheet#float_window = 1
+let g:cheatsheet#float_window_width_ratio = 0.6
+let g:cheatsheet#float_window_height_ratio = 0.6
+
 " Ctrl + e でフォルダツリー表示
 nnoremap <silent><C-f> :NERDTreeToggle<CR>
 
 " コードジャンプ
-au BufNewFile,BufRead *.js let g:vim_tags_project_tags_command = "ctags --languages=js -f ~/js.tags `pwd` 2>/dev/null &"
-nnoremap <silent><C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
-nnoremap <silent><C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
+" set fileformats=unix,dos,mac
+" set fileencodings=utf-8,sjis
+" set tags=.tags;$HOME
+" 
+" function! s:execute_ctags() abort
+"   let tag_name = '.tags'
+"   let tag_path = findfile(tag_name, '.;')
+" 
+"   if tag_path ==# ''
+"     return
+"   endif
+" 
+"   let tag_dirpath = fnamemodify(tags_path, ':p:h')
+" 
+"   execute 'silent !cd' tag_dirpath '&& ctags -R -f' tag_name '2> /dev/null &'
+" endfunction
+" 
+" augroup ctags
+"   autocmd!
+"   autocmd BufWritePost * call s:execute_ctags()
+" augroup END
 
 " prettier
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue PrettierAsync
+
+
+" 保存時のみ実行する
+let g:ale_lint_on_text_changed = 0
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 
 nmap <silent> <C-w>j <Plug>(ale_next_wrap)
@@ -170,6 +201,7 @@ nmap <silent> <C-w>k <Plug>(ale_previous_wrap)
 
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['prettier-eslint']
+let g:ale_fixers['typescript'] = ['prettier-eslint']
 
 " ファイル保存時に実行
 let g:ale_fix_on_save = 1
@@ -235,11 +267,14 @@ set virtualedit=onemore
 
 " インデント
 set smartindent
-set shiftwidth=2
-set tabstop=2
+set shiftwidth=4
+set tabstop=4
 set expandtab
-set softtabstop=2
+set softtabstop=4
 set autoindent
+
+" インデントドット
+set list
 
 " 括弧
 set showmatch
@@ -249,6 +284,12 @@ set wildmode=list:longest
 
 map <C-k> gT
 map <C-l> gt
+
+" vimdiffの色設定
+highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=22
+highlight DiffDelete cterm=bold ctermfg=10 ctermbg=52
+highlight DiffChange cterm=bold ctermfg=10 ctermbg=17
+highlight DiffText   cterm=bold ctermfg=10 ctermbg=21
 
 " material
 set background=dark

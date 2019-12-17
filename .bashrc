@@ -36,4 +36,4 @@ alias log="git log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%C
 
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
-[ -f /Users/yuohashi/Desktop/app/ganache/node_modules/tabtab/.completions/electron-forge.bash ] && . /Users/yuohashi/Desktop/app/ganache/node_modules/tabtab/.completions/electron-forge.bash
+[ -f $HOME/Desktop/app/ganache/node_modules/tabtab/.completions/electron-forge.bash ] && . $HOME/Desktop/app/ganache/node_modules/tabtab/.completions/electron-forge.bash
