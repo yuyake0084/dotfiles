@@ -1,6 +1,12 @@
 [user]
-  name = ohashi-yu
-  email = "ohashi-yu@dmm.com"
+  name = yuyake0084
+  email = "yuyake0084@gmail.com"
 
 [commit]
-	template = ~/dotfiles/.commit_template
+  template = ~/dotfiles/.commit_template
+
+[includeIf "gitdir:~/works/"]
+  path = ~/.gitconfig_works
+
+[includeIf "gitdir:~/private/"]
+  path = ~/.gitconfig_private

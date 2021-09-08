@@ -15,7 +15,7 @@ export ZPLUG_HOME=$HOME/.zplug
 export ZSH=$HOME/.oh-my-zsh
 export DEFAULT_USER='athityakumar'
 
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="cloud"
 
 source $ZPLUG_HOME/init.zsh
 
