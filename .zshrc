@@ -84,7 +84,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time  status rvm time)
 
 ENABLE_CORRECTION="false"
 HIST_STAMPS="mm/dd/yyyy"
-plugins=(git git-extras gem bundler osx ruby rvm rails sudo sublime colorize history history-substring-search last-working-dir compleat zsh-completions zsh-history-substring-search zsh-autosuggestions zsh-syntax-highlighting zsh-syntax-highlighting-filetypes warhol)
+plugins=(git git-extras gem bundler macos ruby rvm rails sudo sublime colorize history history-substring-search last-working-dir compleat)
 autoload -U compinit && compinit
 source $ZSH/oh-my-zsh.sh
 bindkey '\e[A' history-beginning-search-backward
@@ -94,7 +94,7 @@ export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 # ssh-add
-ssh-add -K
+ssh-add --apple-use-keychain and --apple-load-keychain
 
 alias log="git log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 alias del-merged="git branch --merged | egrep -v '\*|develop|master' | xargs git branch -d"
