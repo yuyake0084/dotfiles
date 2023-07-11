@@ -43,6 +43,17 @@ BULLETTRAIN_PROMPT_ORDER=(
   time
 )
 
+if [ -z "$SSH_AUTH_SOCK" ]; then
+    Check for a currently running instance of the agent
+    RUNNING_AGENT="`ps -ax | grep 'ssh-agent -s' | grep -v grep | wc -l | tr -d '[:space:]'`"
+
+    if [ "$RUNNING_AGENT" = "0" ]; then
+        # Launch a new instance of the agent
+        ssh-agent -s &> $HOME/.ssh/ssh-agent
+    fi
+    eval `cat $HOME/.ssh/ssh-agent`
+fi
+
 POWERLEVEL9K_MODE='awesome-fontconfig'
 
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
@@ -85,6 +96,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time  status rvm time)
 ENABLE_CORRECTION="false"
 HIST_STAMPS="mm/dd/yyyy"
 plugins=(git git-extras gem bundler macos ruby rvm rails sudo sublime colorize history history-substring-search last-working-dir compleat)
+
 autoload -U compinit && compinit
 source $ZSH/oh-my-zsh.sh
 bindkey '\e[A' history-beginning-search-backward
@@ -97,7 +109,7 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 ssh-add --apple-use-keychain and --apple-load-keychain
 
 alias log="git log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
-alias del-merged="git branch --merged | egrep -v '\*|develop|master' | xargs git branch -d"
+alias del-merged="git branch --merged | egrep -v '\*|develop|main' | xargs git branch -d"
 alias relogin="exec $SHELL -l"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
@@ -106,3 +118,34 @@ export PATH="/usr/local/opt/openssl/bin:$PATH"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+eval "$(direnv hook zsh)"
+eval $(/opt/homebrew/bin/brew shellenv)
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
+
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+
+
+prompt_end() {
+    if [[ -n $CURRENT_BG ]]; then
+        echo -n " %{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR"
+    else
+        echo -n "%{%k%}"
+    fi
+
+    echo -n "\n%{%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR%{%f%}"
+    CURRENT_BG=''
+}
+
+function awsp() {
+    if [ $# -ge 1 ]; then
+        export AWS_PROFILE="$1"
+        echo "Set AWS_PROFILE=$AWS_PROFILE."
+    else
+        source _awsp
+    fi
+    export AWS_DEFAULT_PROFILE=$AWS_PROFILE
+}
+
