@@ -111,6 +111,7 @@ ssh-add --apple-use-keychain and --apple-load-keychain
 alias log="git log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 alias del-merged="git branch --merged | egrep -v '\*|develop|main' | xargs git branch -d"
 alias relogin="exec $SHELL -l"
+alias awsp="source _awsp"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
