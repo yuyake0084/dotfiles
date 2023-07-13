@@ -16,6 +16,7 @@ brew "tree"
 brew "watch"
 brew "wget"
 brew "awscli"
+brew "mkcert"
 
 cask "alfred"
 cask "clipy"
