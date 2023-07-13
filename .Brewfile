@@ -17,6 +17,7 @@ brew "watch"
 brew "wget"
 brew "awscli"
 brew "mkcert"
+brew "terraform"
 
 cask "alfred"
 cask "clipy"
